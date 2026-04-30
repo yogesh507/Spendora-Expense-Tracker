@@ -29,6 +29,12 @@ app.use(cors({
 
 app.use(express.json());//parse JSON body from requests
 app.use(cookieParser());//request ki cookies ko read karne ke liye hota hai
+
+app.get("/", (req, res) => {
+  res.send("Spendora API is running 🚀")
+})
+
+
 app.use("/",authrouter);
 app.use("/api",expenseRoutes);
 app.use("/api",incomeRoutes);
