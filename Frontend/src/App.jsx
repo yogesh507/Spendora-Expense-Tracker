@@ -2,7 +2,7 @@
 
 
 import {
-  BrowserRouter,
+   HashRouter,
   Routes,
   Route
 } from "react-router-dom"
@@ -23,7 +23,7 @@ import ResetPassword from "./pages/ResetPassword"
 
 function App() {
   return (
-    <BrowserRouter>
+    < HashRouter>
 
       <Routes>
 
@@ -110,7 +110,7 @@ function App() {
 
       </Routes>
 
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
