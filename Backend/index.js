@@ -23,9 +23,9 @@ const allowedOrigins = [
 ]
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: "https://spendora-app-yjqm.onrender.com",
   credentials: true
-})) //frontend se connect krega syd
+}));//frontend se connect krega syd
 
 app.use(express.json());//parse JSON body from requests
 app.use(cookieParser());//request ki cookies ko read karne ke liye hota hai
