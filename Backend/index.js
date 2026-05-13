@@ -16,14 +16,14 @@ const groupRoutes = require("./routes/groupRoutes")
 const cors = require("cors")
 const budgetRoutes = require("./routes/budgetRoutes")
 
- 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://spendora.vercel.app"
+]
 
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "https://spendora-app-yjqm.onrender.com"
-  ],
+  origin: "https://spendora-app-yjqm.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));//frontend se connect krega syd
@@ -52,11 +52,9 @@ app.use("/api", budgetRoutes)
             await main(); //ab isme dono he parallel connect honge pehle aghe piche connect ho rhe the
                console.log("DB Connected");
         
-               const PORT = process.env.PORT || 5000;
-                
-                app.listen(PORT, () => {
-                  console.log(`Listening on ${PORT}`);
-                });
+                 app.listen(process.env.PORT,()=>{
+                console.log("Listening at port number 5000"); 
+              })
           
     }
     catch(err){

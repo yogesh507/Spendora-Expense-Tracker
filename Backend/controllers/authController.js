@@ -26,12 +26,11 @@ const createToken = (user) => {
 }
 
 const setCookie = (res, token) => {
-  res.cookie("token", token, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "none",
-    path: "/"
-  })
+ res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"
+})
 }
 
 
@@ -291,8 +290,8 @@ token
 )
 
 res.json({
-  message:"Login successful",
-  token
+message:
+"Login successful"
 })
 
 }catch(err){
@@ -348,8 +347,7 @@ createToken(user)
 setCookie(res, token)
 
 res.json({
-message: "Google login successful",
-token
+message: "Google login successful"
 })
 
 }catch(err){
@@ -378,12 +376,7 @@ await redisClient.setEx(
 )
 }
 
-res.clearCookie("token", {
-  httpOnly: true,
-  secure: true,
-  sameSite: "none",
-  path: "/"
-})
+res.clearCookie("token")
 
 res.json({
 message:
