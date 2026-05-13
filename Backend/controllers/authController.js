@@ -104,23 +104,7 @@ password,
 10
 )
 
-const otp =
-generateOtp()
-
-await User.create({
-name,
-emailId,
-password:
-hashedPassword,
-provider:
-"local",
-isVerified:false,
-otp: otp,
-otpExpiry:
-Date.now() +
-10 * 60 * 1000,
-otpAttempts:0
-})
+const otp =generateOtp()
 
 await transporter.sendMail({
 from:
@@ -132,6 +116,17 @@ html: `
 <h2>Your OTP is ${otp}</h2>
 <p>Valid for 10 minutes</p>
 `
+})
+
+await User.create({
+  name,
+  emailId,
+  password: hashedPassword,
+  provider: "local",
+  isVerified: false,
+  otp: otp,
+  otpExpiry: Date.now() + 10 * 60 * 1000,
+  otpAttempts: 0
 })
 
 res.status(201).json({
