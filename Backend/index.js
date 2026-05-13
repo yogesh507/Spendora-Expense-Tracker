@@ -9,7 +9,7 @@ const jwt=require('jsonwebtoken');  //jwt token generate krne ke liye
 require('dotenv').config();
 const auth=require("./middleware/userAuth")
 const authrouter=require("./routes/authRoutes")
-const redisClient=require("./config/redis");
+// const redisClient=require("./config/redis");
 const expenseRoutes = require("./routes/expenseRoutes")
 const incomeRoutes = require("./routes/incomeRoutes") 
 const groupRoutes = require("./routes/groupRoutes")
@@ -49,7 +49,7 @@ app.use("/api", budgetRoutes)
     try{
         
 
-            await Promise.all([redisClient.connect(),main()]) //ab isme dono he parallel connect honge pehle aghe piche connect ho rhe the
+            await main(); //ab isme dono he parallel connect honge pehle aghe piche connect ho rhe the
                console.log("DB Connected");
         
                  app.listen(process.env.PORT,()=>{
