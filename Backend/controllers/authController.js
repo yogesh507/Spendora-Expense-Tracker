@@ -291,8 +291,8 @@ token
 )
 
 res.json({
-message:
-"Login successful"
+  message:"Login successful",
+  token
 })
 
 }catch(err){
