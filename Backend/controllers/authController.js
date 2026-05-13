@@ -40,7 +40,9 @@ const setCookie = (res, token) => {
 // ---------------- MAIL ----------------
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASS
@@ -48,6 +50,13 @@ const transporter = nodemailer.createTransport({
   connectionTimeout: 10000,
   greetingTimeout: 10000,
   socketTimeout: 10000
+})
+transporter.verify((error, success) => {
+  if (error) {
+    console.log("SMTP ERROR:", error)
+  } else {
+    console.log("SMTP READY")
+  }
 })
 
 
@@ -113,17 +122,17 @@ Date.now() +
 otpAttempts:0
 })
 
-// await transporter.sendMail({
-// from:
-// process.env.EMAIL,
-// to: emailId,
-// subject:
-// "Spendora Email Verification",
-// html: `
-// <h2>Your OTP is ${otp}</h2>
-// <p>Valid for 10 minutes</p>
-// `
-// })
+await transporter.sendMail({
+from:
+process.env.EMAIL,
+to: emailId,
+subject:
+"Spendora Email Verification",
+html: `
+<h2>Your OTP is ${otp}</h2>
+<p>Valid for 10 minutes</p>
+`
+})
 
 res.status(201).json({
 message:
