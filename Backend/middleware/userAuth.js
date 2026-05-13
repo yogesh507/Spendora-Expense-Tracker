@@ -16,8 +16,8 @@ throw new Error("Please login first")
 
  
 // check blocked token
-const isBlocked = await redisClient.exists(`token:${token}`);
-if(isBlocked) throw new Error("Invalid Token");
+// const isBlocked = await redisClient.exists(`token:${token}`);
+// if(isBlocked) throw new Error("Invalid Token");
 
 // verify token
 const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY);
