@@ -23,11 +23,7 @@ const budgetRoutes = require("./routes/budgetRoutes")
 // ]
 
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://spendora-app-yjqm.onrender.com"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: "https://spendora-app-yjqm.onrender.com",
   credentials: true
 }));//frontend se connect krega syd
 
