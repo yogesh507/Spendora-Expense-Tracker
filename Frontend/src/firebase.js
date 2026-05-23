@@ -6,26 +6,13 @@ import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
-  apiKey:
-    "AIzaSyBEBRN43kpUtnFlAZIqbpbuOMYjkfz8M4E",
-
-  authDomain:
-    "spendora-82a80.firebaseapp.com",
-
-  projectId:
-    "spendora-82a80",
-
-  storageBucket:
-    "spendora-82a80.firebasestorage.app",
-
-  messagingSenderId:
-    "815035739107",
-
-  appId:
-    "1:815035739107:web:515c30100a324713d1ced6",
-
-  measurementId:
-    "G-20SNKTWZTG"
+  apiKey: "AIzaSyATzADzcu_9Pj67sB6ARqUzIGiSwtca6B0",
+  authDomain: "spendora-expense-tracker-a5903.firebaseapp.com",
+  projectId: "spendora-expense-tracker-a5903",
+  storageBucket: "spendora-expense-tracker-a5903.firebasestorage.app",
+  messagingSenderId: "601467702153",
+  appId: "1:601467702153:web:336dcd1a943754e4e72f58",
+  measurementId: "G-RX9XC4687X"
 }
 
 const app =

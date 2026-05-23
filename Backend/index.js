@@ -23,7 +23,7 @@ const budgetRoutes = require("./routes/budgetRoutes")
 // ]
 
 app.use(cors({
-  origin: "https://spendora-app-yjqm.onrender.com",
+  origin: "https://spendora-expense-tracker-1-nn8w.onrender.com",
   credentials: true
 }));//frontend se connect krega syd
 
