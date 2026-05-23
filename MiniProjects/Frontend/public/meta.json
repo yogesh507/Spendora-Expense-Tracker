@@ -1,0 +1,6 @@
+{
+  "name": "Spendora",
+  "short_name": "Spendora",
+  "start_url": "/",
+  "display": "standalone"
+}
