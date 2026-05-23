@@ -93,18 +93,22 @@ function Login() {
       try {
 
         const provider =
-          new GoogleAuthProvider()
+  new GoogleAuthProvider()
 
-        await setPersistence(
-          auth,
-          browserSessionPersistence
-        )
+provider.setCustomParameters({
+  prompt: "select_account"
+})
 
-        const result =
-          await signInWithPopup(
-            auth,
-            provider
-          )
+await setPersistence(
+  auth,
+  browserSessionPersistence
+)
+
+const result =
+  await signInWithPopup(
+  auth,
+  provider
+)
 
         const user =
           result.user
