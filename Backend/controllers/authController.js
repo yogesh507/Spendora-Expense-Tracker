@@ -105,7 +105,7 @@ password,
 const otp =generateOtp()
 
 await transporter.sendMail({
-from: "Spendora <ac590d001@smtp-brevo.com>",
+from: "Spendora <spendora.verify@gmail.com>",
 to: emailId,
 subject:
 "Spendora Email Verification",
